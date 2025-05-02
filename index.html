@@ -1,58 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Manhattan Project Sounds</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background-color: #111;
-            color: #eee;
-        }
-        h1 {
-            color: #ffcc00;
-        }
-        button {
-            margin: 10px 0;
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #444;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #666;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manhattan Project Soundboard</title>
+  <style>
+    body {
+      background-color: #1e1e1e;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      margin-bottom: 2rem;
+    }
+
+    .soundboard {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .sound-button {
+      background-color: #333;
+      border: none;
+      border-radius: 8px;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      color: #f0f0f0;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .sound-button:hover {
+      background-color: #555;
+    }
+  </style>
 </head>
 <body>
-    <h1>Manhattan Project Sounds</h1>
+  <h1>Manhattan Project Soundboard</h1>
+  <div class="soundboard">
+    <button class="sound-button" onclick="playSound('nuclear_test')">Nuclear Test Site</button>
+    <button class="sound-button" onclick="playSound('nuclear_bomb')">Nuclear Bomb</button>
+    <button class="sound-button" onclick="playSound('fighter_pilots')">Fighter Pilots</button>
+    <button class="sound-button" onclick="playSound('submarine')">Submarine</button>
+    <button class="sound-button" onclick="playSound('proxy_war')">Proxy War Conflict</button>
+  </div>
 
-    <p>Sub Sweep</p>
-    <button onclick="document.getElementById('audio0').play()">Play</button>
-    <audio id="audio0" src="Sub Sweep.mp3" preload="auto" controls></audio>
-    
-    <p>nuke test site</p>
-    <button onclick="document.getElementById('audio1').play()">Play</button>
-    <audio id="audio1" src="nuke test site.mp3" preload="auto" controls></audio>
-    
-    <p>underwater explosion</p>
-    <button onclick="document.getElementById('audio2').play()">Play</button>
-    <audio id="audio2" src="underwater explosion.mp3" preload="auto" controls></audio>
-    
-    <p>Air defense</p>
-    <button onclick="document.getElementById('audio3').play()">Play</button>
-    <audio id="audio3" src="Air defense.mp3" preload="auto" controls></audio>
-    
-    <p>Airstrike</p>
-    <button onclick="document.getElementById('audio4').play()">Play</button>
-    <audio id="audio4" src="Airstrike.mp3" preload="auto" controls></audio>
-    
-    <p>Nuke 3rd World</p>
-    <button onclick="document.getElementById('audio5').play()">Play</button>
-    <audio id="audio5" src="Nuke 3rd World.mp3" preload="auto" controls></audio>
-    
+  <script>
+    function playSound(soundId) {
+      const audio = new Audio(`sounds/${soundId}.mp3`);
+      audio.play();
+    }
+  </script>
 </body>
 </html>
