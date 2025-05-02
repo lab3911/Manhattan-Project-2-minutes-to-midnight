@@ -3,60 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Manhattan Project 2: Minutes to Midnight Soundboard</title>
+  <title>Manhattan Project 2: Minutes to Midnight Sounds</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
     body {
-      background-color: #1e1e1e;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #f0f0f0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      background-color: #0d0d0d;
+      font-family: 'Share Tech Mono', monospace;
+      color: #e0e0e0;
+      text-align: center;
       padding: 2rem;
+      background-image: radial-gradient(circle, #222 1px, transparent 1px);
+      background-size: 40px 40px;
     }
 
     h1 {
+      font-size: 2rem;
       margin-bottom: 2rem;
+      color: #ff4c4c;
+      text-transform: uppercase;
+      border: 2px solid #ff4c4c;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: rgba(255, 76, 76, 0.1);
     }
 
-    .soundboard {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-
-    .sound-button {
-      background-color: #333;
-      border: none;
-      border-radius: 8px;
+    button {
+      background-color: #2b2b2b;
+      color: #90ee90;
+      border: 1px solid #444;
       padding: 1rem 2rem;
+      margin: 0.5rem;
       font-size: 1rem;
-      color: #f0f0f0;
+      border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      width: 80%;
+      max-width: 400px;
+      transition: background-color 0.3s, transform 0.1s;
     }
 
-    .sound-button:hover {
-      background-color: #555;
+    button:hover {
+      background-color: #3d3d3d;
+      transform: scale(1.03);
+    }
+
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <h1>Manhattan Project Soundboard</h1>
-  <div class="soundboard">
-    <button class="sound-button" onclick="playSound('nuke test site')">Nuclear Test Site</button>
-    <button class="sound-button" onclick="playSound('Nuke 3rd World')">Third World Country Nuke</button>
-    <button class="sound-button" onclick="playSound('Airstrike')">Fighter Pilots</button>
-        <button class="sound-button" onclick="playSound('Air defense')">Air Defense</button>
-    <button class="sound-button" onclick="playSound('underwater explosion')">Submarine Missiles</button>
-    <button class="sound-button" onclick="playSound('Sub Sweep')">Submarine Sweep</button>
-  </div>
+  <h1>Manhattan Project 2: Minutes to Midnight</h1>
+
+  <button onclick="playSound('nuke test site.mp3')">Nuclear Test Site</button><br>
+  <button onclick="playSound('Nuke 3rd World.mp3')">Third World Country Nuke</button><br>
+  <button onclick="playSound('Airstrike.mp3')">Fighter Pilots</button><br>
+  <button onclick="playSound('Air defense.mp3')">Air Defense</button><br>
+  <button onclick="playSound('underwater explosion.mp3')">Submarine Missiles</button><br>
+  <button onclick="playSound('Sub Sweep.mp3')">Submarine Sweep</button><br>
+
+  <audio id="player"></audio>
 
   <script>
-    function playSound(soundId) {
-      const audio = new Audio(`sounds/${soundId}.mp3`);
-      audio.play();
+    function playSound(file) {
+      const player = document.getElementById('player');
+      player.src = file;
+      player.play();
     }
   </script>
 </body>
